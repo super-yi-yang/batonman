@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>输入大学名称</h1>
+			<input v-model="schoolLevel"/>
+			<li v-if="schoolLevel=='清华大学'||schoolLevel=='北京大学'||schoolLevel=='上海交通大学'">{{schoolLevel}}为985、211大学</li>
+			<li v-if="schoolLevel=='湖南大学'||schoolLevel=='广西大学'||schoolLevel=='上海大学'">{{schoolLevel}}为211大学</li>
+			<li v-if="schoolLevel!=''">{{schoolLevel}}暂未录入</li>
+			
+		</div>
+		<script type="text/javascript">
+			let v = new Vue({
+				el:'#app',
+				data(){
+					return{
+					schoolLevel:'',
+					}
+				}
+			})
+		</script>
+		
+	</body>
+</html>
