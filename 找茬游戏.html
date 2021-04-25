@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img src="./img/找茬.jpg"  @click="myfunction()"  ></br>
+			<h1>得分为：{{score}}</h1>
+			<h1 v-if="score>=3">游戏通过</h1>
+			
+				
+		</div>
+		<script type="text/javascript">
+			let v = new Vue({
+				el:'#app',
+				data:{
+					score:0,
+					score1:0,
+					score2:0,
+					score3:0,
+				},
+				methods:{					
+					myfunction(){
+						
+					  if((event.clientX>108 && event.clientX<135 && event.clientY>8 && event.clientY<25)
+						|| (event.clientX>430 && event.clientX<455 && event.clientY>9 && event.clientY<27))
+							v.score1++;
+							if(v.score1>=1){
+								v.score1=1
+							}
+					  if((event.clientX>19 && event.clientX<44 && event.clientY>200 && event.clientY<245)
+						|| (event.clientX>340 && event.clientX<365 && event.clientY>198 && event.clientY<243))
+							v.score2++;
+							if(v.score2>=1){
+								v.score2=1
+							}
+												
+					  if((event.clientX>113 && event.clientX<150 && event.clientY>338 && event.clientY<385)
+						|| (event.clientX>435 && event.clientX<471 && event.clientY>339 && event.clientY<384))
+							v.score3++;
+							if(v.score3>=1){
+								v.score3=1
+							}
+						v.score=v.score1+v.score2+v.score3
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
